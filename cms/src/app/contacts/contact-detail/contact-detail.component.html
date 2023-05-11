@@ -1,1 +1,24 @@
-<p>contact-detail works!</p>
+<div class="row">
+  <div class="col-xs-9">
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <h3>{{ contact.name }}</h3>
+        <div class="pull-left">
+          <img [src]="contact?.imageUrl" [alt]="contact?.name" class="img-responsive" height="90px" *ngIf="contact?.imageUrl"/> 
+        </div> 
+        <div class="pull-right butn-toolbar">
+          <button class="btn btn-primary btn-md" type="button">Edit</button>
+          <button class="btn btn-danger btn-md" type="button">Delete</button>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="list-group-item-heading">
+          <p><strong>Email:</strong> {{ contact?.email }}</p>
+        </div>
+        <div class="list-group-item-heading">
+          <p><strong>Phone:</strong> {{ contact?.phone }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

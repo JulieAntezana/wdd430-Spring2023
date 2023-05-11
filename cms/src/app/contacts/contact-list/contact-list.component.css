@@ -1,0 +1,24 @@
+/* html selectors */
+img {
+  max-height: 50px
+}
+
+btn {
+  margin-right: 40px;
+}
+
+/* class selectors */
+.heading {
+  font-size: 15pt;
+}
+
+.margin-top {
+  margin-top: 10px;
+}
+
+.col-xs-12 {
+  margin-right: 2px;
+}
+/* id selectors */
+
+
