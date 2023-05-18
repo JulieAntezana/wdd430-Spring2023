@@ -11,7 +11,7 @@ export class DocumentListComponent implements OnInit {
   constructor() {}
   
   documents = [
-    new Document('1', 'Test', 'This is a test.', 'https://www.example.com/'),
+    new Document('1', 'test', 'This is a test.', 'https://www.example.com/'),
   ];
 
   
