@@ -8,7 +8,7 @@ import { DocumentService } from '../document.service';
   styleUrls: ['./document-list.component.css'],
 })
 export class DocumentListComponent implements OnInit {
-  documents: Document[];
+  documents: Document[] = [];
 
   constructor(private documentService: DocumentService) {} 
   
