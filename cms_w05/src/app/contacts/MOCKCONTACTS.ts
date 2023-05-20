@@ -119,11 +119,20 @@ export const MOCKCONTACTS: Contact[] = [
     imageUrl: '../../assets/images/thompsonda.jpg',
     group: null
   },
+    // index 13
+    {
+      id: '99',
+      name: 'Julie Antezana',
+      email: 'jantezana@byui.edu',
+      phone: '208-444-4444',
+      imageUrl: '../../assets/images/thompsonda.jpg',
+      group: null
+    },
 
   // teams
   // index 13
   {
-    id: '4', name: 'Network/OS team', email: ' ', phone: ' ', imageUrl: '', group: [
+    id: '4', name: 'Network/OS team', email: '', phone: '', imageUrl: '', group: [
     {
       id: '2',
       name: 'Bradley Armstrong',
