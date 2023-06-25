@@ -9,11 +9,29 @@
       </div>
     </div>
       <div class="panel-body">
-        <div class="row contact-list-container">
+        <div class="row contact-list-container"
+          cdkDropList
+          #contactList="cdkDropList"
+          [cdkDropListData]="contacts"
+          cdkDropListConnectedTo="groupList">
+          <!--
+            dnd-draggable
+              [dragEnabled]="true"
+              [dragData]="contact"
+              [dropZones]="['contactGroup']"
+          -->
+
           <div class="col-xs-12" margin-top>
             <cms-contact-item
               *ngFor="let contact of contacts"
-              [contact]="contact">
+              [contact]="contact"
+              cdkDrag
+              [cdkDragData]="contact"
+            >
+              <!-- *ngFor="let contact of contacts"
+              [contact]="contact"
+              cdkDrag
+              [cdkDragData]="contact"> -->
             </cms-contact-item>
           </div>  
       </div>

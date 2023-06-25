@@ -37,8 +37,10 @@ export class ContactService {
 
     let maxId = 0
 
-    this.contacts.forEach((currentId) => {
-      if (+currentId > maxId) maxId = +currentId;
+    this.contacts.forEach((contact) => {
+      if (+contact.id > maxId) {
+        maxId = +contact.id;
+      } 
     });
       return maxId;
   }
@@ -47,7 +49,7 @@ export class ContactService {
     if (newContact === null || newContact === undefined) return;
     
 
-    this.maxContactId++
+    this.maxContactId++;
     newContact.id = `${this.maxContactId}`;
     this.contacts.push(newContact);
     this.contactChangedEvent.next(this.contacts.slice()); 

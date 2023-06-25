@@ -1,4 +1,5 @@
 export class Contact {
+//  subscribe: any;
   constructor(
     public id: string,
     public name: string,
