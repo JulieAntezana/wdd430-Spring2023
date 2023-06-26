@@ -20,4 +20,10 @@ btn {
 .col-xs-12 {
   margin-right: 2px;
 }
+
+.panel {
+  padding: 10px;
+}
+
 /* id selectors */
+

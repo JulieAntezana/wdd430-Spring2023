@@ -19,8 +19,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
 import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
 // import { DndModule } from 'ng2-dnd';
 // import { ReactiveFormsModule } from '@angular/forms';
 
@@ -41,11 +43,13 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MessageListComponent,
     DropdownDirective,
     DocumentEditComponent,
-    ContactEditComponent
+    ContactEditComponent,
+    ContactsFilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     DragDropModule,
