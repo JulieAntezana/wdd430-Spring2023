@@ -4,7 +4,7 @@
       <div class="panel-heading clearfix">
         <h2>{{ contact?.name }}</h2>
         <div class="pull-left">
-          <img [src]="contact?.imageUrl" [alt]="contact.name" *ngIf="contact?.imageUrl" class="img-responsive" height="90px" />
+          <img [src]="contact?.imageUrl" [alt]="contact?.name" *ngIf="contact?.imageUrl" class="img-responsive" height="90px" />
         </div>
         <div class="pull-right btn-toolbar">
           <a class="btn btn-primary" routerLink="edit">Edit</a>
@@ -12,13 +12,34 @@
         </div>
       </div>
       <div class="panel-body">
-        <div class="list-group-item-heading">
-          Email: {{ contact?.email }}        
+        <div class="row">
+        <div class="row" *ngIf="contact?.email && contact?.email !== ' '">
+          <div class="list-group-item-heading">
+            Email: {{ contact?.email }}        
+          </div>
         </div>
-        <div class="list-group-item-heading">
-          Phone: {{ contact?.phone }}
+        <div class="row">
+        <div class="row" *ngIf="contact?.phone && contact?.phone !== ' '">
+          <div class="list-group-item-heading">
+            Phone: {{ contact?.phone }}
+          </div>
         </div>
       </div>
-    </div>
+      <div class="panel-body">
+        <div class="row" *ngIf="contact?.group && contact?.group.length > 0">
+          <div class="col-xs-12">
+            <strong>Group Members:</strong>
+            <div class="row" style="min-height: 3rem">
+              <div *ngFor="let groupContact of contact?.group">
+                <app-contact-item
+                  class="col-sm-11"
+                  [contact]="groupContact"
+                ></app-contact-item>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>  
   </div>
 </div>

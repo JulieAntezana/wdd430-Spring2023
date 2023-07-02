@@ -5,6 +5,7 @@ var http = require('http');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
 
 // Routes - import the routing file to handle the default (index) route
 const index = require('./server/routes/app');
@@ -37,9 +38,9 @@ app.use((req, res, next) => {
   next();
 });
 
-// Tell express to use the specified director as the
+// Tell express to use the specified directory as the
 // root directory for your web site
-app.use(express.static(path.join(__dirname, 'dist/cms')));
+app.use(express.static(path.join(__dirname, 'dist/cms_w05')));
 
 // Tell express to map the default route ('/') to the index route
 app.use('/', index);
@@ -55,6 +56,19 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/cms_w05/index.html'));
 });
 
+
+// establish a connection to the mongo database
+// mongoose.connect("mongodb://localhost:27017/cms", { useNewUrlParser: true }).then(() => {
+// console.log("Connected to database!");
+// }).catch((error) => {
+// console.log("Connection failed: " + error);
+// });
+
+mongoose
+  .connect("mongodb://127.0.0.1:27017/cms", { useNewUrlParser: true })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.log("Connection failed: " + err));
+  
 // Define the port address and tell express to use this port
 const port = process.env.PORT || '3000';
 app.set('port', port);

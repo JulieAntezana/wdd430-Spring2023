@@ -1,7 +1,7 @@
 import { Subject } from 'rxjs';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Contact } from './contact.model';
-// import { MOCKCONTACTS } from './MOCKCONTACTS';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
@@ -12,116 +12,124 @@ export class ContactService {
   contactSelectedEvent = new EventEmitter<Contact>();
   contactChangedEvent = new Subject<Contact[]>();
 
-  private contactsUrl = 'https://jacms-2c7d5-default-rtdb.firebaseio.com/contacts.json';
+  private contactsUrl = 'http://localhost:3000/contacts';
   private contacts: Contact [] = [];
-  private maxContactId: number;
+  // private maxContactId: number;
   
   constructor(private http: HttpClient) { 
     // this.maxContactId = this.getMaxId();
   }
 
-
-  getContacts(): Contact[] {
-    this.http
-      .get<Contact[]>(this.contactsUrl)
-      .subscribe((contacts: Contact[]) => {
-        this.contacts = contacts;
-        this.maxContactId = this.getMaxId();
-        this.contacts.sort((a, b) => {
-          if (a < b) return -1;
-          if (a > b) return 1;
-          return 0;
-        });
-        this.contactChangedEvent.next(this.contacts.slice());
-      });
-
-    return this.contacts.slice();
+  sortAndSend() {
+    this.contacts.sort((a, b) => {
+      if (a < b) return -1;
+      if (a > b) return 1;
+      return 0;
+      this.contactChangedEvent.next(this.contacts.slice());
+    });
   }
 
-  storeContacts() {
+  getContacts() {
     this.http
-      .put(this.contactsUrl, JSON.stringify(this.contacts), {
-        headers: new HttpHeaders().set('Content-Type', 'application/json'),
-      })
-      .subscribe(() => {
-        this.contacts.sort((a, b) => {
-          if (a < b) return -1;
-          if (a > b) return 1;
-          return 0;
-        });
-        this.contactChangedEvent.next(this.contacts.slice());
-      });
+      .get<{ message: string, contacts: Contact[] }>(this.contactsUrl)
+      .subscribe(
+        (responseData) => {
+          console.log(responseData.message);
+          this.contacts = responseData.contacts;
+          this.sortAndSend();
+          this.contactChangedEvent.next(this.contacts.slice());
+        },
+        (error: any) => {
+          console.error(error.message);
+          console.error(error.error);
+        },
+      );
   }
 
+  getContact(id: string) {
+    return this.http.get<{message: string, contact: Contact}>(this.contactsUrl + '/' + id);
+  }
 
   addContact(newContact: Contact) {
     if (!newContact) {
       return;
     }
     
+    newContact.id = '';
 
-    this.maxContactId++;
-    newContact.id = `${this.maxContactId.toString}`;
-    this.contacts.push(newContact);
-    this.storeContacts();
-    // this.contactChangedEvent.next(this.contacts.slice()); 
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+
+   
+    this.http.post<{ message: string, contact: Contact }>(this.contactsUrl,
+    newContact,
+    { headers: headers })
+    .subscribe(
+      (responseData) => {
+        console.log(responseData.message);
+        // add new document to documents
+        this.contacts.push(responseData.contact);
+        this.sortAndSend();
+        this.contactChangedEvent.next(this.contacts.slice());
+      },
+      (error: any) => {
+        console.error(error.message);
+        console.error(error.error);
+      },
+    );
   }
 
-  deleteContact(contact: Contact) {
-    if (!contact) return;
-    const pos = this.contacts.indexOf(contact);
-    if (pos < 0) {
+  deleteContact(contact: Contact) { 
+    if (!contact) {
       return;
-    }
-    this.contacts.splice(pos, 1);
-    this.storeContacts();
-    // this.contactChangedEvent.next(this.contacts.slice());
-  }
+   }
+   const pos = this.contacts.indexOf(contact);
+   if (pos < 0) {
+      return;
+   }
 
-  // getContacts(): Contact[] {
-  //   return this.contacts.slice();
-  // }
+   this.http.delete(this.contactsUrl + contact.id)
+     .subscribe(
+       (response: Response) => {
+         this.contacts.splice(pos, 1);
+         this.contacts.sort();
+         this.contactChangedEvent.next(this.contacts.slice());
+       },
+       (error: any) => {
+        console.error(error.message);
+        console.error(error.error);
+      },
+     );
 
-  getContact(id: string): Contact {
-    for (const contact of this.contacts) {
-      if (contact.id === id) {
-        return contact;
-      }
-    }
-
-    return null;
-
-    // return this.contacts.find((contact) => contact.id === id);
-   } 
-
-
-  getMaxId(): number {
-
-    let maxId = 0
-
-    this.contacts.forEach((contact) => {
-      if (+contact.id > maxId) {
-        maxId = +contact.id;
-      } 
-    });
-      return maxId;
   }
 
   updateContact(originalContact: Contact, newContact: Contact) {
-    if (
-      originalContact === undefined || newContact === undefined || originalContact === null || newContact === null) {
-        return;
-      }
-
-
-    const pos = this.contacts.indexOf(originalContact)
-    if (pos < 0) 
-        return;
-    
+    if (!newContact || !originalContact) return;
+    const pos = this.contacts.findIndex(contact => contact.id === originalContact.id);
+    if (pos < 0) {
+      return;
+    } 
 
     newContact.id = originalContact.id;
-    this.contacts[pos] = newContact;
-    this.storeContacts();
-    // this.contactChangedEvent.next(this.contacts.slice());
+
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+
+    this.http
+      .put<{ message: string }>(
+        this.contactsUrl + originalContact.id,
+        newContact,
+        {
+          headers: headers})
+          .subscribe(
+            (res) => {
+            console.log(res.message);
+            this.contacts[pos] = newContact;
+            this.sortAndSend();
+            this.contactChangedEvent.next(this.contacts.slice());
+          },
+          (error: any) => {
+            console.error(error.message);
+            console.error(error.error);
+          },
+      );
   }
 }
