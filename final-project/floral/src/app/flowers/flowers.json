@@ -1,0 +1,297 @@
+[{
+  "id": "1",
+  "commonName": "Alstroemeria",
+  "botanicalName": "Alstroemeria",
+  "color": "pink, white, yellow, purple, red, green",
+  "url": "https://www.floristone.com/item/flowers/alstroemeria.cfm",
+  "imageUrl": "../assets/images/alstroemeria-pink.jpg",
+  "group": []
+}, 
+{
+  "id": "2",
+  "commonName": "Baby's Breath",
+  "botanicalName": "Gypsophila paniculata",
+  "color": "white",
+  "url": "https://www.floristone.com/item/flowers/filler/babys-breath.cfm",
+  "imageUrl": "../assets/images/babiesbreath.jpg",
+  "group": []
+},
+{
+  "id": "3",
+  "commonName": "Bells of Ireland",
+  "botanicalName": "Moluccella laevis",
+  "color": "green",
+  "url": "https://www.floristone.com/item/flowers/bells-of-ireland.cfm",
+  "imageUrl": "../assets/images/bells-of-ireland.jpg",
+  "group": []
+},
+{
+  "id": "4",
+  "commonName": "Bupleurum",
+  "botanicalName": "Bupleurum",
+  "color": "yellos",
+  "url": "https://www.floristone.com/item/flowers/bupleurum.cfm",
+  "imageUrl": "../assets/images/bupleurum.jpg",
+  "group": []
+},
+{
+  "id": "5",
+  "commonName": "Calla Lily",
+  "botanicalName": "Zantedeschia aethiopica",
+  "color": "white",
+  "url": "https://www.floristone.com/item/flowers/calla-lilies.cfm",
+  "imageUrl": "../assets/images/calla-lily-white.jpg",
+  "group": []
+},
+{
+  "id": "6",
+  "commonName": "Carnation",
+  "botanicalName": "Dianthus caryophyllus",
+  "color": "white, red, pink, hot pink, yellow",
+  "url": "https://www.floristone.com/item/flowers/carnations.cfm",
+  "imageUrl": "../assets/images/carnation-red.jpg",
+  "group": []
+},
+{
+  "id": "7",
+  "commonName": "Chrysanthemum",
+  "botanicalName": "Chrysanthemum morifolium",
+  "color": "yellow, lavender, white, green",
+  "url": "https://www.floristone.com/item/flowers/chrysanthemums.cfm",
+  "imageUrl": "../assets/images/chrysanthemum-spider-white.jpg",
+  "group": []
+},
+{
+  "id": "8",
+  "commonName": "Delphinium",
+  "botanicalName": "Delphinium",
+  "color": "blue, white",
+  "url": "https://www.floristone.com/item/flowers/delphinium.cfm",
+  "imageUrl": "../assets/images/delphinium.jpg",
+  "group": []
+},
+{
+  "id": "9",
+  "commonName": "Freesia",
+  "botanicalName": "Freesia",
+  "color": "white, yellow, lavender",
+  "url": "https://www.floristone.com/item/flowers/freesia.cfm",
+  "imageUrl": "../assets/images/freesia-lavender.jpg",
+  "group": []
+},
+{
+  "id": "10",
+  "commonName": "Gerbera Daisies",
+  "botanicalName": "Gerbera jamesonii",
+  "color": "fuchsia, salmon, orange, pink, red, yellow",
+  "url": "https://www.floristone.com/item/flowers/gerbera-daisies.cfm",
+  "imageUrl": "../assets/images/gerbera-daisy-fuchsia.jpg",
+  "group": []
+},
+{
+  "id": "11",
+  "commonName": "Gladiola",
+  "botanicalName": "Gladiolus",
+  "color": "red, white, yellow",
+  "url": "https://www.floristone.com/item/flowers/gladiola.cfm",
+  "imageUrl": "../assets/images/gladiola-red.jpg",
+  "group": []
+},
+{
+  "id": "12",
+  "commonName": "Hydrangea",
+  "botanicalName": "Hydrangea",
+  "color": "white, blue, pink, green",
+  "url": "https://www.floristone.com/item/flowers/hydrangea.cfm",
+  "imageUrl": "../assets/images/hydrangea-white.jpg",
+  "group": []
+},
+{
+  "id": "13",
+  "commonName": "Hypericum",
+  "botanicalName": "Hypericum androsaemum",
+  "color": "green, red, peach, white",
+  "url": "https://www.floristone.com/item/flowers/filler/hypericum-berries.cfm",
+  "imageUrl": "../assets/images/hypericum-peach.jpg",
+  "group": []
+},
+{
+  "id": "14",
+  "commonName": "Larkspur",
+  "botanicalName": "Delphinium tricorne",
+  "color": "white, purple, pink",
+  "url": "https://www.floristone.com/item/flowers/larkspur.cfm",
+  "imageUrl": "../assets/images/larkspur-purple.jpg",
+  "group": []
+},
+{
+  "id": "15",
+  "commonName": "Liatris",
+  "botanicalName": "Liatris",
+  "color": "purple",
+  "url": "https://www.floristone.com/item/flowers/liatris.cfm",
+  "imageUrl": "../assets/images/liatris-purple.jpg",
+  "group": []
+},
+{
+  "id": "16",
+  "commonName": "Limonium",
+  "botanicalName": "Limonium sinuatum",
+  "color": "gray",
+  "url": "https://www.floristone.com/item/flowers/filler/limonium.cfm",
+  "imageUrl": "../assets/images/limonium.jpg",
+  "group": []
+},
+{
+  "id": "17",
+  "commonName": "Matsumoto Aster",
+  "botanicalName": "Callistephus chinensis",
+  "color": "pink, purple, red",
+  "url": "https://www.floristone.com/item/flowers/filler/matsumoto.cfm",
+  "imageUrl": "../assets/images/matsumoto-aster-pink.jpg",
+  "group": []
+},
+{
+  "id": "18",
+  "commonName": "Mini Calla Lily",
+  "botanicalName": "Zantedeschia rehmannii",
+  "color": "yellow, pink, white, multi-colored",
+  "url": "https://www.floristone.com/item/flowers/mini-calla-lilies.cfm",
+  "imageUrl": "../assets/images/mini-calla-lily-yellow.jpg",
+  "group": []
+},
+{
+  "id": "19",
+  "commonName": "Mini Carnation",
+  "botanicalName": "Dianthus caryophyllus",
+  "color": "orange, pink, yellow, red",
+  "url": "https://www.floristone.com/item/flowers/mini-carnations.cfm",
+  "imageUrl": "../assets/images/mini-carnation-orange.jpg",
+  "group": []
+},
+{
+  "id": "20",
+  "commonName": "Mini Hydrangea",
+  "botanicalName": "Hydrangea macrophylla",
+  "color": "green",
+  "url": "https://www.floristone.com/item/flowers/mini-hydrangea.cfm",
+  "imageUrl": "../assets/images/mini-hydrangea-green.jpg",
+  "group": []
+},
+{
+  "id": "21",
+  "commonName": "Montecasino Aster",
+  "botanicalName": "Symphyotrichum pilosum var. pringlei",
+  "color": "lavender, white",
+  "url": "https://www.floristone.com/item/flowers/filler/montecasino.cfm",
+  "imageUrl": "../assets/images/montecasino-lavender.jpg",
+  "group": []
+},
+{
+  "id": "22",
+  "commonName": "Pompom Chrysanthemums",
+  "botanicalName": "Chrysanthemum",
+  "color": "lavender, purple, white, yellow, green",
+  "url": "https://www.floristone.com/item/flowers/pompon-chrysanthemums.cfm",
+  "imageUrl": "../assets/images/pompon-chrysanthemum-daisy-white.jpg",
+  "group": []
+},
+{
+  "id": "23",
+  "commonName": "Queen Anne's Lace",
+  "botanicalName": "Daucus carota",
+  "color": "white",
+  "url": "https://www.floristone.com/item/flowers/queen-annes-lace.cfm",
+  "imageUrl": "../assets/images/queen-annes-lace.jpg",
+  "group": []
+},
+{
+  "id": "24",
+  "commonName": "Roses",
+  "botanicalName": "Rosa",
+  "color": "red, lavender, hot pink, peach, yellow",
+  "url": "https://www.floristone.com/item/flowers/roses.cfm",
+  "imageUrl": "../assets/images/rose-lavendar.jpg",
+  "group": []
+},
+{
+  "id": "25",
+  "commonName": "Snapdragon",
+  "botanicalName": "Antirrhinum majus",
+  "color": "yellow, pink, lavender",
+  "url": "https://www.floristone.com/item/flowers/snapdragons.cfm",
+  "imageUrl": "../assets/images/snapdragon-yellow.jpg",
+  "group": []
+},
+{
+  "id": "26",
+  "commonName": "Solidago (Goldenrod)",
+  "botanicalName": "Solidago",
+  "color": "yellow",
+  "url": "https://www.floristone.com/item/flowers/filler/solidago.cfm",
+  "imageUrl": "../assets/images/solidago.jpg",
+  "group": []
+},
+{
+  "id": "27",
+  "commonName": "Spray Roses",
+  "botanicalName": "Rosa",
+  "color": "red, white, pink, hot pink, orange, yellow",
+  "url": "https://www.floristone.com/item/flowers/spray-roses.cfm",
+  "imageUrl": "../assets/images/spray-rose-pink.jpg",
+  "group": []
+},
+{
+  "id": "28",
+  "commonName": "Stargazer Lily",
+  "botanicalName": "Lilium 'Stargazer’1",
+  "color": "fuchsia",
+  "url": "https://www.floristone.com/item/flowers/lilies.cfm",
+  "imageUrl": "../assets/images/stargazer-lily.jpg",
+  "group": []
+},
+{
+  "id": "29",
+  "commonName": "Statice",
+  "botanicalName": "Limonium sinuatum",
+  "color": "purple",
+  "url": "https://www.floristone.com/item/flowers/filler/statice.cfm",
+  "imageUrl": "../assets/images/statice.jpg",
+  "group": []
+},
+{
+  "id": "30",
+  "commonName": "Stock",
+  "botanicalName": "Matthiola incana",
+  "color": "purple, fuchsia, yellow",
+  "url": "https://www.floristone.com/item/flowers/filler/stock.cfm",
+  "imageUrl": "../assets/images/stock-fuchsia.jpg",
+  "group": []
+},
+{
+  "id": "31",
+  "commonName": "Sunflowers",
+  "botanicalName": "Helianthus annuus",
+  "color": "yellow",
+  "url": "https://www.floristone.com/item/flowers/sunflowers.cfm",
+  "imageUrl": "../assets/images/sunflower.jpg",
+  "group": []
+},
+{
+  "id": "32",
+  "commonName": "Tulips",
+  "botanicalName": "Tulipa",
+  "color": "white, pink, yellow, red, purple, bicolor",
+  "url": "https://www.floristone.com/item/flowers/tulips.cfm",
+  "imageUrl": "../assets/images/tulip-white.jpg",
+  "group": []
+},
+{
+  "id": "33",
+  "commonName": "Waxflower",
+  "botanicalName": "Chamelaucium uncinatum",
+  "color": "lavender",
+  "url": "https://www.floristone.com/item/flowers/filler/waxflower.cfm",
+  "imageUrl": "../assets/images/waxflower.jpg",
+  "group": []
+}]

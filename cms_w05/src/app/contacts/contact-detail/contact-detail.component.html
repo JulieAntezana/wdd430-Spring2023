@@ -31,10 +31,10 @@
             <strong>Group Members:</strong>
             <div class="row" style="min-height: 3rem">
               <div *ngFor="let groupContact of contact?.group">
-                <app-contact-item
+                <cms-contact-item
                   class="col-sm-11"
                   [contact]="groupContact"
-                ></app-contact-item>
+                ></cms-contact-item>
               </div>
             </div>
           </div>

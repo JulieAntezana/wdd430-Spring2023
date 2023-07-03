@@ -1,0 +1,149 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form 
+      id="flower-edit"
+      #f="ngForm"
+      (ngSubmit)="onSubmit(f)"
+    >
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="commonName">Common Name:</label>
+          <input
+            type="text"
+            id="commonName"
+            name="commonName"
+            [ngModel]="flower?.commonName"
+            class="form-control required"
+            size="120"
+            max="120"
+            required
+            #commonName="ngModel"
+            />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="bontanicalName">Botanical Name:</label>
+          <input
+            type="text"
+            id="botanicalName"
+            name="botanicalName"
+            [ngModel]="flower?.botanicalName"
+            class="form-control required"
+            size="120"
+            max="255"
+            botanicalName
+            required
+            #botanicalName="ngModel">
+        </div>
+      </div>
+      <div class="alert alert-danger" *ngIf="botanicalName.invalid && botanicalName.touched">Enter a valid botanical name.</div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="color">Color:</label>
+          <input
+            type="text"
+            id="color"
+            name="color"
+            [ngModel]="flower?.color"
+            class="form-control required"
+            size="150"
+            max="255"
+            color
+            required
+            #color="ngModel"
+            />
+        </div>
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="color.invalid && color.touched">
+        Enter a valid color.
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="url">URL:</label>
+          <input
+            type="text"
+            id="url"
+            name="url"
+            [ngModel]="flower?.url"
+            class="form-control required"
+            size="150"
+            max="255"
+            url
+            required
+            #url="ngModel"
+            />
+        </div>
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="url.invalid && url.touched">
+        Enter a valid URL.
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="imageUrl">Image URL:</label>
+          <input
+            type="text"
+            id="imageUrl"
+            name="imageUrl"
+            [ngModel]="flower?.imageUrl"
+            class="form-control required"
+            size="150"
+            max="255"
+            imageUrl
+            required
+            #imageUrl="ngModel"
+            />
+        </div>
+      </div>
+      <div
+        class="alert alert-danger"
+        *ngIf="imageUrl.invalid && imageUrl.touched">
+        Enter a valid image Url.
+      </div>
+
+      <div class="row">
+        <div class="form-group">
+          <label for="groupList">Floral Arrangements:</label>
+           <!-- dnd-droppable -->
+            <!-- [dropZones]="['flowerGroup']" -->
+            <!-- (onDropSuccess)="addToGroup($event)" -->
+          <div class="row" 
+            id="groupList"
+            style="min-height: 3rem;"
+            cdkDropList
+            #groupList="cdkDropList"
+            [cdkDropListData]="groupFlowers"
+            (cdkDropListDropped)="addToGroup($event)"
+            >
+            <div *ngFor="let flower of groupFlowers; let i = index" class="item-container">         
+                <floral-flower-item class="col-sm-11" [flower]="flower"></floral-flower-item>
+                <button class="btn btn-danger col-sm-2 deleteButton" (click)="onRemoveItem(i)">X</button>  
+            </div>
+            <span class="dragMsg" *ngIf="groupFlowers?.length < 1">Drag flowers in arrangement here</span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="alert alert-danger"
+        *ngIf="(commonName.invalid && commonName.untouched) || (botanicalName.invalid && botanicalName.untouched) || (color.invalid && color.touched)">
+        The Common Name, Botanical Name and Color fields are required.
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar">
+          <button class="btn btn-success" type="submit" [disabled]="f.invalid">Save</button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

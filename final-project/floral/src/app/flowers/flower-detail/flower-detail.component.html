@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading clearfix">
+        <h2>{{ flower?.commonName }}</h2>
+        <div class="pull-left">
+          <img [src]="flower?.imageUrl" [alt]="flower?.commonName" *ngIf="flower?.imageUrl" class="img-responsive" height="90px" />
+        </div>
+        <div class="pull-right btn-toolbar">
+          <a class="btn btn-primary" (click)="onView()">View</a>
+          <a class="btn btn-primary" routerLink="edit">Edit</a>
+          <a class="btn btn-danger" (click)="onDelete()">Delete</a>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+        <div class="row" *ngIf="flower?.botanicalName && flower?.botanicalName !== ' '">
+          <div class="list-group-item-heading">
+            Botanical Name: {{ flower?.botanicalName }}        
+          </div>
+        </div>
+        <div class="row">
+        <div class="row" *ngIf="flower?.color && flower?.color !== ' '">
+          <div class="list-group-item-heading">
+            Color: {{ flower?.color }}
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="row" *ngIf="flower?.url && flower?.url !== ' '">
+          <div class="list-group-item-heading">
+            URL: {{ flower?.url }}
+          </div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <div class="row" *ngIf="flower?.group && flower?.group.length > 0">
+          <div class="col-xs-12">
+            <strong>Floral Arrangements:</strong>
+            <div class="row" style="min-height: 3rem">
+              <div *ngFor="let groupFlower of flower?.group">
+                <floral-flower-item
+                  class="col-sm-11"
+                  [flower]="groupFlower"
+                ></floral-flower-item>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>  
+  </div>
+</div>
