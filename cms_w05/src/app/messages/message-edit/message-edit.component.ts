@@ -19,12 +19,14 @@ export class MessageEditComponent implements OnInit {
   @ViewChild('msgText') msgText: ElementRef;
   currentSender: Contact;
 
-  constructor(private messageService: MessageService, private contactService: ContactService) {}
+  constructor(
+    private messageService: MessageService, 
+    private contactService: ContactService) {}
 
   ngOnInit() {
     this.contactService.getContact("101")
-      .subscribe(responseData => {
-        this.currentSender = responseData.contact;
+      .subscribe(response => {
+        this.currentSender = response.contact;
       })
   }
 
@@ -32,15 +34,18 @@ export class MessageEditComponent implements OnInit {
     const subjectValue = this.subject.nativeElement.value;
     const msgTextValue = this.msgText.nativeElement.value;
 
-    const message = new Message(subjectValue, msgTextValue, this.currentSender);
-      this.messageService.addMessage(message);
-
+    const newMessage: Message = new Message(
+      '',
+      '',
+      subjectValue, 
+      msgTextValue, 
+      this.currentSender
+    );
+    
+    this.messageService.addMessage(newMessage);
     this.onClear();
   }
-      // '1', 
-      // subjectValue, 
-      // msgTextValue, 
-      // this.currentSender);
+
   onClear() {
     this.subject.nativeElement.value = '';
     this.msgText.nativeElement.value = '';

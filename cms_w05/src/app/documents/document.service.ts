@@ -12,7 +12,7 @@ export class DocumentService {
 
   private documentsUrl = 'http://localhost:3000/documents';
   private documents: Document[] = [];
-  documentSelectedEvent: any;
+  // selectedDocumentEvent: any;
 
   constructor(private http: HttpClient) {}
 

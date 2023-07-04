@@ -6,28 +6,29 @@ var router = express.Router();
 
 router.get('/', (req, res, next) => {
   Message.find()
-    .then((msgs) => {
-      res.status(200).json({
-        message: "Successfully retrieved messages from the database.",
-        messages: msgs,
-      });
-    })
-    .catch((err) => {
+    .populate('sender')
+      .then(messages => {
+        res.status(200).json({
+          message: 'Messages fetched successfully',
+          messages: messages
+        });
+      })
+    .catch(error => {
       res.status(500).json({
-        message: "Failed to retrieve messages from the database.",
-        error: err,
+        message: 'An error occurred',
+        error: error
       });
     });
-});
+  });
 
 router.post("/", (req, res, next) => {
   const maxMessageId = sequenceGenerator.nextId("messages");
 
   const message = new Message({
     id: maxMessageId,
-    subject: req.body.subjectValue,
-    msgText: req.body.msgTextValue,
-    sender: req.body.senderValue,
+    subject: req.body.subject,
+    msgText: req.body.msgText,
+    sender: req.body.sender,
   });
   message
     .save()

@@ -30,12 +30,11 @@
           <input
             type="text"
             id="description"
-            name="description"
-            [ngModel]="document?.description"
             class="form-control"
             size="120"
             max="255"
-            #description="ngModel"
+            [ngModel]="document?.description"
+            name="description"
             />
         </div>
       </div>
