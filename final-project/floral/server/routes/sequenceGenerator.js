@@ -38,3 +38,4 @@ SequenceGenerator.prototype.nextId =  function (collectionType) {
   return nextId;
 };
 module.exports = SequenceGenerator;
+

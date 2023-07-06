@@ -12,7 +12,7 @@ export class FlowerService {
   flowerSelectedEvent = new EventEmitter<Flower>();
   flowerChangedEvent = new Subject<Flower[]>();
 
-  private flowersUrl = 'http://localhost:3000/flowers';
+  private flowersUrl = 'http://localhost:3000/flowers/';
   private flowers: Flower [] = [];
   // private maxFlowerId: number;
   
@@ -34,7 +34,6 @@ export class FlowerService {
       .get<{ message: string, flowers: Flower[] }>(this.flowersUrl)
       .subscribe(
         (responseData) => {
-          console.log(responseData.message);
           this.flowers = responseData.flowers;
           this.sortAndSend();
           this.flowerChangedEvent.next(this.flowers.slice());
@@ -82,7 +81,7 @@ export class FlowerService {
     if (!flower) {
       return;
    }
-   const pos = this.flowers.indexOf(flower);
+   const pos = this.flowers.findIndex(f => f.id === flower.id);
    if (pos < 0) {
       return;
    }
@@ -105,6 +104,7 @@ export class FlowerService {
   updateFlower(originalFlower: Flower, newFlower: Flower) {
     if (!newFlower || !originalFlower) return;
     const pos = this.flowers.findIndex(flower => flower.id === originalFlower.id);
+    console.log(originalFlower);
     if (pos < 0) {
       return;
     } 

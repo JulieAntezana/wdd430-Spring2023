@@ -294,4 +294,25 @@
   "url": "https://www.floristone.com/item/flowers/filler/waxflower.cfm",
   "imageUrl": "../assets/images/waxflower.jpg",
   "group": []
-}]
+},
+{
+  "id": "34",
+  "commonName": "Lilies",
+  "botanicalName": "Lillium",
+  "color": "white",
+  "url": "https://www.floristone.com/item/flowers/lilies.cfm",
+  "imageUrl": "../assets/images/lily-white.jpg",
+  "group": []
+},
+{
+  "id": "35",
+  "commonName": "The Wondrous Nature Bouquet",
+  "botanicalName": " ",
+  "color": " ",
+  "url": "https://www.floristone.com/item/C12-4400/the-wondrous-nature-bouquet/",
+  "imageUrl": "../assets/images/wondrous.jpg",
+  "group": [
+    "0", "ObjectId(64a27090be0308243c1ebd18)"
+  ]
+}
+]

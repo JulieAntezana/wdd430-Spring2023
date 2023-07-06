@@ -6,7 +6,7 @@
           <div class="panel panel-default">
             <div class="panel-heading">
               <div class="row">
-                <span class="title pad-left-right">Flowers and Arrangements</span>
+                <span class="title pad-left-right">Flowers in Arrangements</span>
               </div>
               <div class="row">
                 <div class="input-group pull-left pad-left-right col-xs-7">
@@ -21,7 +21,7 @@
                 </div>
               </div>
               <div class="pull-right pad-left-right">
-                <a class="btn btn-success" [routerLink]="['new']">New Flower</a>
+                <a class="btn btn-success" [routerLink]="['new']">New Item</a>
               </div>
             </div>
           </div>
@@ -43,15 +43,10 @@
 
         <div class="col-xs-12" margin-top>
           <floral-flower-item
-            *ngFor="let flower of flowers"
+          *ngFor="let flower of flowers | flowersFilter:term"
             [flower]="flower"
             cdkDrag
-            [cdkDragData]="flower">
-
-            <!-- *ngFor="let flower of flowers | flowersFilter: term"
-            [flower]="flower"
-            cdkDrag
-            [cdkDragData]="flower" -->
+            [cdkDragData]="flower" >
 
           </floral-flower-item>
         </div>  

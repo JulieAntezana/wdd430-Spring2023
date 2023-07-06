@@ -3,12 +3,12 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Flower } from '../flower.model';
 import { FlowerService } from '../flower.service';
-import {CdkDragDrop} from '@angular/cdk/drag-drop';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'floral-flower-edit',
   templateUrl: './flower-edit.component.html',
-  styleUrls: ['./flower-edit.component.css']
+  styleUrls: ['./flower-edit.component.css'],
 })
 export class FlowerEditComponent implements OnInit {
   originalFlower: Flower;
@@ -24,45 +24,34 @@ export class FlowerEditComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(){
+  ngOnInit() {
     this.route.params.subscribe((params: Params) => {
-        this.id = params['id'];
- 
+      this.id = params['id'];
 
-        if(!this.id) {
-          this.editMode = false;
-          return;
-        }
- 
+      if (!this.id) {
+        this.editMode = false;
+        return;
+      }
 
-      this.originalFlower = 
+      // this.originalFlower =
       // this.flowerService.getFlower(this.id)
 
-       this.id = params['id'];
-       this.flowerService.getFlower(this.id)
-         .subscribe(flowerData => {
-           this.flower = flowerData.flower;
-         });
- 
-
-        if(!this.originalFlower) {
-          return
+      this.flowerService.getFlower(this.id).subscribe((flowerData) => {
+        this.originalFlower = flowerData.flower;
+        if (!this.originalFlower) {
+          return;
         }
         this.editMode = true;
         this.flower = JSON.parse(JSON.stringify(this.originalFlower));
- 
+        console.log(this.flower);
 
-        if(
-          this.originalFlower.group &&
-          this.originalFlower.group.length > 0
-        ){
+        if (this.originalFlower.group && this.originalFlower.group.length > 0) {
           this.groupFlowers = JSON.parse(
             JSON.stringify(this.originalFlower.group)
           );
         }
- 
-
       });
+    });
   }
   onSubmit(form: NgForm) {
     let value = form.value;
@@ -74,6 +63,7 @@ export class FlowerEditComponent implements OnInit {
       value.imageUrl,
       this.groupFlowers
     );
+    // console.log(this.editMode);
     if (this.editMode) {
       this.flowerService.updateFlower(this.originalFlower, newFlower);
     } else {
@@ -81,8 +71,6 @@ export class FlowerEditComponent implements OnInit {
     }
     this.onCancel();
   }
-
-  
 
   onCancel() {
     this.router.navigate(['/flowers']);
@@ -93,11 +81,10 @@ export class FlowerEditComponent implements OnInit {
     if (index < 0 || index >= this.groupFlowers.length) {
       return;
     }
-    
+
     this.groupFlowers.splice(index, 1);
   }
 
-  
   isInvalidFlower(newFlower: Flower) {
     if (!newFlower) {
       return true;
@@ -120,9 +107,8 @@ export class FlowerEditComponent implements OnInit {
     const invalidGroupFlower = this.isInvalidFlower(selectedFlower);
     if (invalidGroupFlower) {
       return;
-    } 
+    }
     this.groupFlowers.push(selectedFlower);
     this.flower.group.push(selectedFlower);
   }
-
 }

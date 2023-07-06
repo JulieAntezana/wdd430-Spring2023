@@ -12,11 +12,11 @@ export class FlowersFilterPipe implements PipeTransform {
        filteredFlowers = flowers.filter(
           (flower:Flower) => flower?.commonName.toLowerCase().includes(term.toLowerCase())
        );
+       return filteredFlowers;
+    } else {
+      return flowers;
     }
-    if (filteredFlowers.length < 1){
-       return flowers;
-    }
-    return filteredFlowers;
+
  }
 
 }

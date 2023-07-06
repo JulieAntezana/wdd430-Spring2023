@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { FlowersFilterPipe } from './flowers/flowers-filter.pipe';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     FlowerItemComponent,
     FlowerEditComponent,
     DropdownDirective,
+    FlowersFilterPipe
   ],
   imports: [
     BrowserModule,
